@@ -5,22 +5,16 @@
 You can install the package via [Composer](https://getcomposer.org).
 
 ```bash
-composer require alaaelsaid/laravel-regexs
+composer require alaaelsaid/laravel-sms-helper
 ```
 
 ## Usage
 
 ```php
-use Alaaelsaid\LaravelRegexs\Facade\Regex;
+use Alaaelsaid\LaravelSmsHelper\Facade\Sms;
 
-$is_valid_email = Regex::email('example@email.com'); // return TRUE;
+// to send single phone number;
+Sms::send('+201007153686', "hello world");
 
-$is_valid_youtube_url = Regex::youtube('example@email.com'); // return FALSE
-
-$is_valid_english_sentence = Regex::english('مرحبا'); // return FALSE
-
-$is_valid_arabic_sentence = Regex::arabic('Hello'); // return FALSE
-
-$is_valid_country_code = Regex::countryCode('966'); // return TRUE
-
-$is_valid_url = Regex::url('link.here-com'); // return FALSE
+// to send single phone number;
+Sms::send(['+201007153686'], "hello world");

@@ -1,0 +1,19 @@
+{
+    "name": "alaaelsaid/laravel-sms-helper",
+    "description": "Sms helper",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Alaaelsaid\\LaravelSmsHelper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alaa Elsaid",
+            "email": "alaa4cat@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

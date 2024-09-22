@@ -28,5 +28,7 @@ class SmsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/sms.php', 'sms'
         );
+
+        $this->app->register(self::class);
     }
 }

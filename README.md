@@ -19,6 +19,9 @@ php artisan vendor:publish --tag="sms"
 ## Env
 In the .env file you can add those keys:
 
+## Available SMS Providers
+Malath - Hisms - Four Jawaly - Unifonic - Yamamah
+
 ```dotenv
 SMS_PROVIDER=four_jawaly
 SMS_PROVIDER_STATUS=false

@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class SmsProcessActions
 {
-    public $smsInterface;
+    public SmsInterface $smsInterface;
 
     public function __construct(SmsInterface $smsInterface)
     {

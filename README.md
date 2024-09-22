@@ -8,6 +8,22 @@ You can install the package via [Composer](https://getcomposer.org).
 composer require alaaelsaid/laravel-sms-helper
 ```
 
+## Publishing
+
+After install publish file config
+
+```bash
+php artisan vendor:publish --tag="sms"
+```
+
+## Env
+In the .env file you can add those keys:
+
+```dotenv
+SMS_PROVIDER=four_jawaly
+SMS_PROVIDER_STATUS=false
+```
+
 ## Usage
 
 ```php

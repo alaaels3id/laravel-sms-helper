@@ -4,11 +4,17 @@ namespace Alaaelsaid\LaravelSmsHelper\Providers;
 
 use Alaaelsaid\LaravelSmsHelper\Contracts\SmsInterface;
 use Alaaelsaid\LaravelSmsHelper\Facade\SmsProcessActions;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Package;
+use Illuminate\Support\ServiceProvider;
 
-class SmsServiceProvider extends PackageServiceProvider
+class SmsServiceProvider extends ServiceProvider
 {
+    public function boot(): void
+    {
+        $this->publishes([
+            __DIR__.'/../config/sms.php' => config_path('sms.php'),
+        ],'sms');
+    }
+
     public function register(): void
     {
         $name = config('sms.sms_provider');
@@ -16,11 +22,9 @@ class SmsServiceProvider extends PackageServiceProvider
         $this->app->bind(SmsInterface::class,'Alaaelsaid\LaravelSmsHelper\implements\\'.str($name)->camel()->ucfirst());
 
         $this->app->singleton('Sms', fn(SmsInterface $sms) => new SmsProcessActions($sms));
-    }
 
-    public function configurePackage(Package $package): void
-    {
-        $package->name('laravel-sms-helper')
-            ->hasConfigFile('sms');
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/sms.php', 'sms'
+        );
     }
 }

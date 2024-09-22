@@ -3,14 +3,15 @@
 namespace Alaaelsaid\LaravelSmsHelper\Facade;
 
 use Alaaelsaid\LaravelSmsHelper\Contracts\SmsInterface;
-use Alaaelsaid\LaravelSmsHelper\Facade\MobilePhone;
 use Illuminate\Support\Str;
 
 class SmsProcessActions
 {
-    public function __construct(public SmsInterface $smsInterface)
+    public $smsInterface;
+
+    public function __construct(SmsInterface $smsInterface)
     {
-        //
+        $this->smsInterface = $smsInterface;
     }
 
     public function send($number, $message = ''): bool|array

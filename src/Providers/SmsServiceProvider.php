@@ -21,7 +21,9 @@ class SmsServiceProvider extends ServiceProvider
 
         $this->app->bind(SmsInterface::class,'Alaaelsaid\LaravelSmsHelper\implements\\'.str($name)->camel()->ucfirst());
 
-        $this->app->singleton('Sms', fn(SmsInterface $sms) => new SmsProcessActions($sms));
+        $this->app->singleton('Sms', function() {
+            return new SmsProcessActions(app(SmsInterface::class));
+        });
 
         $this->mergeConfigFrom(
             __DIR__.'/../config/sms.php', 'sms'

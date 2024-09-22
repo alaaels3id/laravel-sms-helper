@@ -3,6 +3,10 @@
     "description": "Sms helper",
     "type": "library",
     "license": "MIT",
+    "keywords": ["sms", "helper"],
+    "require": {
+        "php": "^8.1"
+    },
     "autoload": {
         "psr-4": {
             "Alaaelsaid\\LaravelSmsHelper\\": "src/"
@@ -24,12 +28,9 @@
             ],
             "aliases": {
                 "Sms": "Alaaelsaid\\LaravelSmsHelper\\Facade\\Sms"
-            },
-            "dont-discover": [
-                "alaaelsaid/laravel-sms-helper"
-            ]
+            }
         }
     },
-    "minimum-stability": "dev",
-    "require-dev": {}
+    "prefer-stable": true,
+    "minimum-stability": "stable"
 }

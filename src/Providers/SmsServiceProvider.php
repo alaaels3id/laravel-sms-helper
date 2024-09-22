@@ -25,10 +25,10 @@ class SmsServiceProvider extends ServiceProvider
             return new SmsProcessActions(app(SmsInterface::class));
         });
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/sms.php', 'sms'
-        );
+        $this->mergeConfigFrom(__DIR__.'/../config/sms.php', 'sms');
 
-        $this->app->register(self::class);
+        $this->app->register(SmsServiceProvider::class);
+
+        $this->app->alias(SmsProcessActions::class, 'Sms');
     }
 }

@@ -14,6 +14,19 @@
             "email": "alaa4cat@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alaaelsaid\\LaravelSmsHelper\\Providers\\SmsServiceProvider"
+            ],
+            "aliases": {
+                "Sms": "Alaaelsaid\\LaravelSmsHelper\\Facade"
+            },
+            "dont-discover": [
+                "alaaelsaid/laravel-sms-helper"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "require-dev": {}
 }

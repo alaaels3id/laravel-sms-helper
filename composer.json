@@ -20,7 +20,7 @@
                 "Alaaelsaid\\LaravelSmsHelper\\Providers\\SmsServiceProvider"
             ],
             "aliases": {
-                "Sms": "Alaaelsaid\\LaravelSmsHelper\\Facade"
+                "Sms": "Alaaelsaid\\LaravelSmsHelper\\Facade\\Sms"
             },
             "dont-discover": [
                 "alaaelsaid/laravel-sms-helper"

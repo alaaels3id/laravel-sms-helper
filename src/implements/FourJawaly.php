@@ -12,7 +12,7 @@ class FourJawaly implements SmsInterface
 
     public static string $app_secret;
 
-    public static function data($number, $message): array
+    public function data($number, $message): array
     {
         [$number_iso, $sender] = ['SA', config('sms.sms_sender_name')];
 
@@ -30,7 +30,7 @@ class FourJawaly implements SmsInterface
         return compact('messages', 'global');
     }
 
-    public static function send($number, $message): array
+    public function send($number, $message): array
     {
         $headers = ['Authorization' => 'Basic '.self::auth(), 'User-Agent' => 'Forejawali'];
 

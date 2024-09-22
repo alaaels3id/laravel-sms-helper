@@ -4,6 +4,11 @@ namespace Alaaelsaid\LaravelSmsHelper\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @method static send(string|array $number, string $message)
+ *
+ * @see SmsProcessActions
+ */
 class Sms extends Facade
 {
     /**

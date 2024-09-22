@@ -17,7 +17,7 @@ class SmsProcessActions
     {
         $numbers = is_array($number) ? implode(',', $number) : MobilePhone::setCountryCode()->setPrefix($number);
 
-        if (self::canSend()) return $this->smsInterface::send($numbers, $message);
+        if (self::canSend()) return $this->smsInterface->send($numbers, $message);
 
         else info($message);
 

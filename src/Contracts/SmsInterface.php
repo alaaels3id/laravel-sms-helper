@@ -4,7 +4,7 @@ namespace Alaaelsaid\LaravelSmsHelper\Contracts;
 
 interface SmsInterface
 {
-    public static function data($number, $message): array;
+    public function data($number, $message): array;
 
-    public static function send($number, $message): array;
+    public function send($number, $message): array;
 }

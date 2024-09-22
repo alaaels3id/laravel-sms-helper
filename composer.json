@@ -15,10 +15,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "scripts": {
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=sms --ansi --force"
-        ]
-    },
-    "require": {}
+    "require-dev": {}
 }

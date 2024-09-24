@@ -13,7 +13,7 @@ class MobilePhone
 
     public function plain($number): string
     {
-        if (! $number) return trans('back.no-value');
+        if (! $number) return 'no value';
 
         $_num = self::convertNumTo($number);
 
@@ -26,7 +26,7 @@ class MobilePhone
 
     public function setPrefix($number, $prefix = ''): string
     {
-        if (! $number) return trans('back.no-value');
+        if (! $number) return 'no value';
 
         $code = $this->country_code;
 
@@ -35,12 +35,12 @@ class MobilePhone
 
     public function international($number): string
     {
-        return self::setPrefix($number, '00');
+        return self::setPrefix($number,'00');
     }
 
     public function prefixed($number): string
     {
-        return self::setPrefix($number, '+');
+        return self::setPrefix($number,'+');
     }
 
     public static function convertNumTo($num, $to = 'en'): string

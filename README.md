@@ -22,6 +22,8 @@ In the .env file you can add those keys:
 ```dotenv
 SMS_PROVIDER=four_jawaly
 SMS_PROVIDER_STATUS=false
+SMS_CODE_DYNAMIC=false
+SMS_DEFAULT_CODE=1111
 ```
 
 ## Available SMS Providers

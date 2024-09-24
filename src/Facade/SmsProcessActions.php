@@ -32,19 +32,19 @@ class SmsProcessActions
         return self::send($number, self::getMessage($_code));
     }
 
-    public static function code($default = 1111)
+    public static function code()
     {
-        return config('sms.sms_code_dynamic') ? create_rand_numbers() : $default;
+        return config('sms.sms_code_dynamic') ? create_rand_numbers() : config('sms.sms_default_code');
     }
 
     public static function getMessage($code): string
     {
-        return Str::replaceArray('؟', [$code], 'كود التفعيل الخاص بك هو : ؟');
+        return Str::replaceArray('####', [$code], 'كود التفعيل الخاص بك هو : ####');
     }
 
     public static function getForgetMessage($code): string
     {
-        return Str::replaceArray('؟', [$code], 'كود إعادة تعيين كلمة المرور هو : ؟');
+        return Str::replaceArray('####', [$code], 'كود إعادة تعيين كلمة المرور هو : ####');
     }
 
     private static function canSend(): bool

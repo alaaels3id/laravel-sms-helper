@@ -1,5 +1,3 @@
-# This is some regex for PHP
-
 ## Installation
 
 You can install the package via [Composer](https://getcomposer.org).

@@ -37,5 +37,8 @@ use Alaaelsaid\LaravelSmsHelper\Facade\Sms;
 // to send single phone number;
 Sms::send('+201007153686', "hello world");
 
-// to send single phone number;
+// to send multi phone numbers;
 Sms::send(['+201007153686'], "hello world");
+
+// to send single phone number && code is optional;
+Sms::sendWithCode(['+201007153686'], '1111');

@@ -8,9 +8,16 @@ use Illuminate\Support\Facades\{Http};
 
 class FourJawaly implements SmsInterface
 {
-    public static string $api_key;
+    public string $api_key;
 
-    public static string $app_secret;
+    public string $app_secret;
+
+    public function __construct()
+    {
+        $this->api_key = config('sms.api_key');
+
+        $this->app_secret = config('sms.secret_key');
+    }
 
     public function data($number, $message): array
     {
@@ -38,23 +45,24 @@ class FourJawaly implements SmsInterface
 
         if ($res->code !== 200)
         {
-            return ['code' => $res->code, 'status' => false, 'message' => $res->message];
+            return $this->response($res->code, false, $res->message);
         }
 
-        return ['code' => $res->code, 'status' => true, 'message' => $res->message];
+        return $this->response($res->code, true, $res->message);
     }
 
-    private static function auth(): string
+    private function auth(): string
     {
-        static::$api_key = config('sms.api_key');
-
-        static::$app_secret = config('sms.secret_key');
-
-        return base64_encode(static::$api_key.':'.static::$app_secret);
+        return base64_encode($this->api_key.':'.$this->app_secret);
     }
 
-    private static function url(): string
+    private function url(): string
     {
         return 'https://api-sms.4jawaly.com/api/v1/account/area/sms/send';
+    }
+
+    private function response($code, $status, $message): array
+    {
+        return ['code' => $code, 'status' => $status, 'message' => $message];
     }
 }

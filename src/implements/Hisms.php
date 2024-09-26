@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class Hisms implements SmsInterface
 {
-    private static function messages($code): string
+    private function messages($code): string
     {
         return match ($code) {
             1       => 'إسم المستخدم غير صحيح',
@@ -28,12 +28,12 @@ class Hisms implements SmsInterface
         };
     }
 
-    private static function errors(): array
+    private function errors(): array
     {
         return [1, 2, 404, 403, 504, 4, 5, 6, 7, 8, 9, 10, 11];
     }
 
-    public static function data($number, $message): array
+    public function data($number, $message): array
     {
         return [
             'send_sms' => '',
@@ -45,14 +45,20 @@ class Hisms implements SmsInterface
         ];
     }
 
-    public static function send($number, $message): array
+    public function send($number, $message): array
     {
-        $code = Http::post('https://hisms.ws/api.php', self::data($number, $message))->body();
+        $code = Http::post('https://hisms.ws/api.php', $this->data($number, $message))->body();
 
-        $result = ['message' => self::messages($code), 'code' => $code];
+        $result = ['message' => $this->messages($code), 'code' => $code];
 
-        if (in_array((int)$code, self::errors())) {
+        if (in_array((int)$code, $this->errors()))
+        {
+            $result['status'] = false;
             Log::warning('Hisms : ' . $result['message']);
+        }
+        else
+        {
+            $result['status'] = true;
         }
 
         return $result;

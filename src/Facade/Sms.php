@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static send(string|array $number, string $message)
  * @method static sendWithCode(string|array $number, $code = null)
+ * @method static code()
+ * @method static getForgetMessage()
+ * @method static getMessage()
  *
  * @see SmsProcessActions
  */

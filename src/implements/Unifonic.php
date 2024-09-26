@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class Unifonic implements SmsInterface
 {
-    public static function messages($code): string
+    public function messages($code): string
     {
         return match ($code) {
             200 => 'Success',
@@ -51,7 +51,7 @@ class Unifonic implements SmsInterface
         };
     }
 
-    public static function data($number, $message): array
+    public function data($number, $message): array
     {
         return [
             'AppSid' => config('sms.sms_password'),
@@ -66,7 +66,7 @@ class Unifonic implements SmsInterface
         ];
     }
 
-    public static function send($number, $message): array
+    public function send($number, $message): array
     {
         $result = Http::post('https://el.cloud.unifonic.com/rest/SMS/messages', self::data($number, $message))->object();
 

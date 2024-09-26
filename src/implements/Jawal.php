@@ -28,7 +28,7 @@ class Jawal implements SmsInterface
         return [101, 104, 105, 106, 107, 108, 1010];
     }
 
-    public static function data($number, $message): array
+    public function data($number, $message): array
     {
         return [
             'username' => config('sms.sms_number'),
@@ -40,7 +40,7 @@ class Jawal implements SmsInterface
         ];
     }
 
-    public static function send($number, $message): array
+    public function send($number, $message): array
     {
         $result = Http::post('https://www.jawalsms.net/httpSmsProvider.aspx', self::data($number, $message))->object();
 

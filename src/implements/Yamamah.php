@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class Yamamah implements SmsInterface
 {
-    public static function messages($code): string
+    public function messages($code): string
     {
         return match ($code) {
             0 => 'Message send successfully',
@@ -23,12 +23,12 @@ class Yamamah implements SmsInterface
         };
     }
 
-    public static function errors(): array
+    public function errors(): array
     {
         return [101, 104, 105, 106, 107, 108, 1010];
     }
 
-    public static function data($number, $message): array
+    public function data($number, $message): array
     {
         return [
             'Username' => config('sms.sms_number'),
@@ -39,7 +39,7 @@ class Yamamah implements SmsInterface
         ];
     }
 
-    public static function send($number, $message): array
+    public function send($number, $message): array
     {
         $result = Http::post('https://api.yamamah.com/SendSMS', self::data($number, $message))->object();
 

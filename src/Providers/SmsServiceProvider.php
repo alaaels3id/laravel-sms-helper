@@ -2,6 +2,7 @@
 
 namespace Alaaelsaid\LaravelSmsHelper\Providers;
 
+use Alaaelsaid\LaravelSmsHelper\console\SmsCurrentStatusCommand;
 use Alaaelsaid\LaravelSmsHelper\Contracts\SmsInterface;
 use Alaaelsaid\LaravelSmsHelper\Facade\SmsProcessActions;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +14,12 @@ class SmsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/sms.php' => config_path('sms.php'),
         ],'sms');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                SmsCurrentStatusCommand::class,
+            ]);
+        }
     }
 
     public function register(): void

@@ -1,6 +1,6 @@
 <?php
 
-namespace Alaaelsaid\LaravelSmsHelper\console;
+namespace Alaaelsaid\LaravelSmsHelper\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

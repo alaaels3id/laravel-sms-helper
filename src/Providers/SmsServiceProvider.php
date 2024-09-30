@@ -2,7 +2,7 @@
 
 namespace Alaaelsaid\LaravelSmsHelper\Providers;
 
-use Alaaelsaid\LaravelSmsHelper\console\SmsCurrentStatusCommand;
+use Alaaelsaid\LaravelSmsHelper\Console\SmsCurrentStatusCommand;
 use Alaaelsaid\LaravelSmsHelper\Contracts\SmsInterface;
 use Alaaelsaid\LaravelSmsHelper\Facade\SmsProcessActions;
 use Illuminate\Support\ServiceProvider;

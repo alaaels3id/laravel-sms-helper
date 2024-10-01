@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 namespace Alaaelsaid\LaravelSmsHelper\Facade;
 

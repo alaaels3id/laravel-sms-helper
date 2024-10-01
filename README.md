@@ -14,6 +14,15 @@ After install publish file config
 php artisan vendor:publish --tag="sms"
 ```
 
+## Command
+
+You Can change sms current status with this command by [ on, off ] or get the current status
+
+```bash
+php artisan sms:current
+php artisan sms:current off
+```
+
 ## Env
 In the .env file you can add those keys:
 

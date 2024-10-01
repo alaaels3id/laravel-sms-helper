@@ -4,6 +4,7 @@ namespace Alaaelsaid\LaravelSmsHelper\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Alaaelsaid\LaravelSmsHelper\Facade\Environment;
 
 class SmsCurrentStatusCommand extends Command
 {
@@ -26,28 +27,22 @@ class SmsCurrentStatusCommand extends Command
      */
     public function handle(): void
     {
-        if($this->argument('value'))
+        if($this->hasArgument('value'))
         {
             $value = strtolower($this->argument('value'));
 
-            if (! in_array($value, ['on', 'off'])) {
+            if (! in_array($value, ['on', 'off']))
+            {
                 $this->components->error('The value must be ON or OFF');
+
                 return;
             }
 
             $new_value = ($value == 'on') ? 'true' : 'false';
 
-            $current_status = config('sms.sms_provider_status') ? 'true' : 'false';
+            Environment::updateBool('SMS_PROVIDER_STATUS', $new_value);
 
-            $old = "'sms_provider_status' => $current_status";
-
-            $new = "'sms_provider_status' => $new_value";
-
-            $path = config_path('sms.php');
-
-            File::put($path, str_replace($old, $new, File::get($path)));
-
-            $this->components->info('SMS Current status is : '.$new_value);
+            $this->components->info('SMS Current status is : ' . $value);
 
             return;
         }

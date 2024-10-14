@@ -1,3 +1,5 @@
+https://banners.beyondco.de/Laravel%20SMS%20Helper.png?theme=light&packageManager=composer+require&packageName=alaaelsaid%2Flaravel-sms-helper&pattern=architect&style=style_1&description=This+package+integrates+with+saudi+arabia+sms+services&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg
+
 ## Installation
 
 You can install the package via [Composer](https://getcomposer.org).

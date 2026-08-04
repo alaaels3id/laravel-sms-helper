@@ -37,7 +37,7 @@ SMS_DEFAULT_CODE=1111
 
 ## Available SMS Providers
 ```
-Malath - Hisms - Four Jawaly - Unifonic - Yamamah
+Malath - Hisms - Four Jawaly - Unifonic - Yamamah - Taqnyat
 ```
 
 ## Usage
